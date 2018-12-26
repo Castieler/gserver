@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
     url(r'rbac/', include('myapps.rbac.urls', namespace='rbac')),
     url(r'google/', include('myapps.google.urls', namespace='google')),
-    url(r'search/', include('myapps.google.urls', namespace='google_search')),
-    url(r'url/', include('myapps.google.urls', namespace='google_url')),
+    url(r'search', include('myapps.google.urls', namespace='google_search')),
+    url(r'url', include('myapps.google.urls', namespace='google_url')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
