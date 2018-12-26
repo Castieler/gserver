@@ -38,9 +38,10 @@ def click(request, last_url):
     if request.method == 'GET':
         print('click')
         print(request.get_all_path())
-        content = request.POST.get('content')
-        url = 'https://www.google.com.hk/search?safe=strict&hl=zh-CN&q={0}'
-        res = requests.get(url.format(content))
+        url = 'https://www.google.com.hk'+ request.get_all_path()
+        print('url',url)
+        res = requests.get(url)
+
         # html = etree.HTML(res.text)
         content = res.text
         content.replace('href="', 'href="/google/search/?href=')
