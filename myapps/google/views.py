@@ -42,7 +42,7 @@ def click(request, last_url):
     if request.method == 'GET':
         print('click')
         print(request.get_full_path())
-        url = 'https://www.google.com.hk'+ request.get_all_path()
+        url = 'https://www.google.com.hk'+ request.get_full_path()
         print('url',url)
         res = requests.get(url)
 
