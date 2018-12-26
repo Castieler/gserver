@@ -46,6 +46,8 @@ class LoginMiddleware(MiddlewareMixin):
         flag = False
         for url in permission_dict['urls']:
             regex = f'{url}$'
+            print(regex)
+            print(current_url)
             if match(pattern=regex, string=current_url):
                 request.session[settings.FEATURE_LIST] = permission_dict['features']
                 flag = True
