@@ -22,14 +22,14 @@ def search(request, last_url):
     if request.method == 'GET':
         print('ssss')
         print(request.get_full_path())
-        print(request.__dict__)
         return render(request, 'google/search.html')
     else:
         content = request.POST.get('content')
         url = 'https://www.google.com.hk/search?safe=strict&hl=zh-CN&q={0}'
         res = requests.get(url.format(content))
-        # html = etree.HTML(res.text)
-        content = res.text
+        html = etree.HTML(res.text)
+        content = html.xpath('//body')
+        # content = res.text
         print('href="' in content)
         # content.replace('href="','href="/google/search/?href=')
         # content.replace('<form style="display:block;margin:0;background:none" action="/search" id="tsf" method="GET" name="gs"><table border="0" cellpadding="0" cellspacing="0" style="margin-top:20px;position:relative"><tr><td><div class="lst-a"><table cellpadding="0" cellspacing="0"><tr><td class="lst-td" width="555" valign="bottom"><div style="position:relative;zoom:1"><input class="lst" value="python" title="搜索" autocomplete="off" id="sbhost" maxlength="2048" name="q" type="text"></div></td></tr></table></div></td><td><div class="ds"><div class="lsbb"><button class="lsb" value="搜索" name="btnG" type="submit"><span class="sbico" style="background-image:url(/images/nav_logo229.png);background-repeat:no-repeat;height:14px;width:13px;display:block;background-position:-36px -111px"></span></button></div></div></td></tr></table><input name="safe" value="strict" type="hidden"><input name="hl" value="zh-CN" type="hidden"></form>','')
@@ -47,7 +47,9 @@ def click(request, last_url):
         res = requests.get(url)
 
         # html = etree.HTML(res.text)
-        content = res.text
+        # content = res.text
+        html = etree.HTML(res.text)
+        content = html.xpath('//body')
 
 
         return render(request, 'google/search.html', {"content": content})
