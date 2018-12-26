@@ -3,7 +3,7 @@ def save_request_url(fun):
         try:
             last_url = request.session['url']
         except:
-            last_url= "/home/"
+            last_url= "/rbac/home/"
         request.session['url'] = request.path_info
         return fun(request, last_url, *args, **kwargs)
     return inner
