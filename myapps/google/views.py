@@ -32,6 +32,8 @@ def search(request, last_url):
         print(content)
         return render(request, 'google/search.html',{"content": content})
 
+@validate
+@save_request_url
 def click(request, last_url):
     if request.method == 'GET':
         print('click')

@@ -11,7 +11,7 @@ basepath='/usr/local/python3/bin'
 
 
 PIDFILE=$CWD/python_server.pid
-
+git stash && git pull
 
 case "$1" in
 
