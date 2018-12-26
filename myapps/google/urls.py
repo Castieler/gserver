@@ -21,6 +21,8 @@ urlpatterns = [
     # url(r'^po456stcomment/(?P<article_id>\d+)$', views.CommentPostView.as_view(), name='postcomment'),
     #
     path(r'search/', views.search, name='search'),
+    path(r'', views.click, name='click'),
+
     #
     # path(r'regist/', views.regist, name='regist'),
     # path(r'set_pwd/', views.set_password, name='set_pwd'),
