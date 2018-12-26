@@ -22,6 +22,8 @@ def search(request, last_url):
     if request.method == 'GET':
         return render(request, 'google/search.html')
     else:
-        es_name = request.POST.get('content')
-        print(es_name)
-        return render(request, 'google/search.html')
+        content = request.POST.get('content')
+        url = 'https://www.google.com.hk/search?safe=strict&hl=zh-CN&q={0}'
+        res = requests.get(url.format(content))
+        content = res.text.replace('href="','href="/google/search/?href=')
+        return render(request, 'google/search.html',{"content": content})

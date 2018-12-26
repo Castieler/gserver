@@ -1,0 +1,9 @@
+*.pyc
+*.docx
+*.xlsx
+*.iml
+*.xml
+*.djcache
+.idea
+
+
