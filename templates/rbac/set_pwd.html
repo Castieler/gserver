@@ -3,7 +3,7 @@
 {% block container %}
 
 
-<form class="form-horizontal" action="/set_pwd/" method="post" >
+<form class="form-horizontal" action="{% url 'rbac:set_pwd' %}" method="post" >
     {% csrf_token %}
 
   <div class="form-group">

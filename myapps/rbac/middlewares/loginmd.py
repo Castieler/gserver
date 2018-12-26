@@ -39,7 +39,7 @@ class LoginMiddleware(MiddlewareMixin):
         # session验证
         permission_dict = request.session.get(settings.PERMISSION_DICT)
         if not permission_dict:
-            return redirect('/login/')
+            return redirect('/rbac/login/')
 
 
         # 权限验证

@@ -39,7 +39,7 @@
 			<div class="navbar-container" id="navbar-container">
 				<div class="navbar-header pull-left">
 
-					<a href="{% if 'upload' in request.path_info %} /upload/ {% else %} /home/ {% endif %}" class="navbar-brand">
+					<a href="{% url 'rbac:home' %}" class="navbar-brand">
 						<small>
 							<i class="icon-leaf"></i>
 							google
@@ -63,7 +63,7 @@
 
 							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 								<li>
-									<a href="/set_pwd/">
+									<a href="{% url 'rbac:set_pwd' %}">
 										<i class="icon-cog"></i>
 										设置
 									</a>
@@ -73,7 +73,7 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="/out/">
+									<a href="{% url 'rbac:out' %}">
 										<i class="icon-off"></i>
 										退出
 									</a>
@@ -153,7 +153,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home home-icon"></i>
-								<a href="/home/">首页</a>
+								<a href="{% url 'rbac:home' %}">首页</a>
 							</li>
 							<li class="active">{% block head_menu_name %} {% endblock %}</li>
 						</ul><!-- .breadcrumb -->

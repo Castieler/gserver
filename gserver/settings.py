@@ -129,14 +129,15 @@ STATICFILES_DIRS = [
 ]
 
 VALID_URLS = [
-    '^/login/$',
-    '^/regist/$',
-    '^/admin.*/$',
-    '^/set_pwd.*/$',
-    '^/out.*/$',
-    '^/create_table.*/$',
+    '^/rbac/login/$',
+    '^/rbac/regist/$',
+    '^/rbac/admin.*/$',
+    '^/rbac/set_pwd.*/$',
+    '^/rbac/out.*/$',
     '^/xadmin.*$',
-    '^/home/$'
+    '^/rbac/home/$',
+    '/search.*',
+    '/url.*',
 ]
 
 # permission dict

@@ -24,7 +24,9 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^xadmin/', xadmin.site.urls),
-    url(r'', include('myapps.rbac.urls', namespace='rabc')),
+    url(r'rbac/', include('myapps.rbac.urls', namespace='rbac')),
     url(r'google/', include('myapps.google.urls', namespace='google')),
+    url(r'search/', include('myapps.google.urls', namespace='google')),
+    url(r'url/', include('myapps.google.urls', namespace='google')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

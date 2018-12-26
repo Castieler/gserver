@@ -1,7 +1,7 @@
 {% extends 'rbac/base_header.html' %} #继承那个模板
 {% load staticfiles %}
 {% block container %}
-<form class="form-horizontal" action="/regist/" method="post" >
+<form class="form-horizontal" action="{% url 'rbac:regist' %}" method="post" >
     {% csrf_token %}
 
   <div class="form-group">

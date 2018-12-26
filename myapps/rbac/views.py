@@ -44,8 +44,8 @@ def login(request):
                 _url_list = []
                 for item in request.session[settings.MENU_LIST]:
                     _url_list.append(item['url'])
-                if '/home/' in _url_list:
-                    return redirect('/home/')
+                if '/rbac/home/' in _url_list:
+                    return redirect('/rbac/home/')
                 else:
                     return redirect(_url_list[0])
             else:
@@ -125,7 +125,7 @@ def out(request, last_url):
         except:
             pass
         request.session.clear()
-    return redirect('/login/')
+    return redirect('/rbac/login/')
 
 
 def page_not_found(request):

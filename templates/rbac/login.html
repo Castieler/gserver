@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block container %}
 
-<form class="form-horizontal" action="/login/" method="post" >
+<form class="form-horizontal" action="{% url 'rbac:login' %}" method="post" >
     {% csrf_token %}
 
   <div class="form-group">
