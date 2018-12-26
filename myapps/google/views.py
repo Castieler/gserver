@@ -29,6 +29,8 @@ def search(request, last_url):
         res = requests.get(url.format(content))
         html = etree.HTML(res.text)
         content = html.xpath('//body')
+        print(html.xpath('//a'))
+        print(len(content))
         # content = res.text
         print('href="' in content)
         # content.replace('href="','href="/google/search/?href=')
