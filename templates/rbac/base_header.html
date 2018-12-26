@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+        <title>{% block title %}{% endblock%}</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+
+		<link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}" />
+        <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
+        <link rel="icon" href="{% static 'image/icon.png' %}" sizes="32x32">
+
+
+
+		<script src="{% static 'assets/js/ace-extra.min.js' %}"></script>
+
+
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+                    {% if icon_url %}
+                        <a href={{ icon_url }} class="navbar-brand">
+                        {% else %}
+                        <a class="navbar-brand">
+                    {% endif %}
+
+						<small>
+							<i class="icon-leaf"></i>
+							DataMining管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+			</div><!-- /.container -->
+		</div>
+        {% block container %} {% endblock %}
+
+
+		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+
+
+
+</body>
+</html>
+

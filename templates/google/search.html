@@ -1,0 +1,53 @@
+{% extends 'rbac/base.html' %} #继承那个模板
+{% load staticfiles %}
+{% load mytag %}
+
+{% block title %} 权限管理系统
+{% endblock %}
+
+
+
+{% block left %}
+    {% menu_html request %}
+
+
+{% endblock %}
+{% block content %}
+
+    <div class="widget-box">
+        <div class="widget-header widget-header-small">
+            <h5 class="lighter">🔍google搜索</h5>
+        </div>
+
+        <div class="widget-body">
+            <div class="widget-main">
+                <form class="form-search" action="/google/search/" method="post">
+                     {% csrf_token %}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8">
+                            <div class="input-group">
+                                <input type="text" name="content" class="form-control search-query" />
+                                {{ info }}
+                                <span class="input-group-btn">
+																		<button type="submit"
+                                                                                class="btn btn-purple btn-sm">
+																			搜索
+																			<i class="icon-search icon-on-right bigger-110"></i>
+																		</button>
+																	</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="widget-box"></div>
+
+
+{% endblock %}
+
+{% block username %} {{ request.session.username }}{% endblock %}
+
+{% block head_menu_name %} home {% endblock %}

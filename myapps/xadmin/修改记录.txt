@@ -1,0 +1,3 @@
+1.图标点击无反应  修改：/Users/js/Documents/work/后端/Django/role_system/extra_apps/xadmin/templates/xadmin/base_site.html
+    <a class="navbar-brand" href="#">{% block branding %}{{ site_title }}{% endblock %}</a> 改为
+    <a class="navbar-brand" href="{% url 'xadmin:index' %}">{% block branding %}{{ site_title }}{% endblock %}</a>
