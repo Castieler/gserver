@@ -28,8 +28,7 @@ def search(request, last_url):
         url = 'https://www.google.com.hk/search?safe=strict&hl=zh-CN&q={0}'
         res = requests.get(url.format(content))
         html = etree.HTML(res.text)
-        content = html.xpath('//body')
-        print(html.xpath('//a'))
+        content = html.xpath('//body')[0]
         print(len(content))
         # content = res.text
         print('href="' in content)
