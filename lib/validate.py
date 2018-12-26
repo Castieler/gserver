@@ -6,7 +6,7 @@ def validate(fun):
             if request.session['username']:
                 return fun(request, *args, **kwargs)
             else:
-                return redirect('/login')
+                return redirect('/rbac/login')
         except:
-            return redirect('/login')
+            return redirect('/rbac/login')
     return inner
