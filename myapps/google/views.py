@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+import re
 # Create your views here.
 import requests
 import json
@@ -20,8 +20,6 @@ from lxml import etree
 @save_request_url
 def search(request, last_url):
     if request.method == 'GET':
-        print('ssss')
-        print(request.get_full_path())
         return render(request, 'google/search.html')
     else:
         content = request.POST.get('content')
@@ -29,9 +27,10 @@ def search(request, last_url):
         res = requests.get(url.format(content))
         # html = etree.HTML(res.text)
         # content = html.xpath('//body')[0]
-        print(len(content))
+
         content = res.text
         print('href="' in content)
+        # print(re.sub())
 
         return render(request, 'google/search.html',{"content": content})
 
